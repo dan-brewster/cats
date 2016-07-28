@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<response>
+  <data>
+    <images>
+      <image>
+        <url>http://25.media.tumblr.com/tumblr_m43d87lrle1qfb46yo1_500.jpg</url>
+        <id>MjA1OTMwMA</id>
+        <source_url>http://thecatapi.com/?id=MjA1OTMwMA</source_url>
+      </image>
+    </images>
+  </data>
+</response>
