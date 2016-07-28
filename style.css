@@ -1,0 +1,28 @@
+.catGrid {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px 200px;
+  grid-template-rows: 200px 200px 200px 200px 200px;
+  grid-gap: 10px;
+}
+
+.singleCat {
+  background-color: #eee;
+  box-shadow: 2px 2px 2px 1px #eee;
+  width: 200px;
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.catFact {
+  position: absolute;
+  left: 0;
+  color: white;
+  font-family: helvetica, arial, sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px black;
+}
+
+.catPic {
+  max-height: 200px;
+}

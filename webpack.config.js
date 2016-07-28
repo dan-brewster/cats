@@ -18,7 +18,7 @@ var config = {
       }
     ],
     plugins: [
-      new WebpackErrorNotificationPlugin();
+      new WebpackErrorNotificationPlugin()
     ]
   },
   devtool: 'source-map'

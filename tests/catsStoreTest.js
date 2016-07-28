@@ -14,10 +14,9 @@ describe('async actions', () => {
   });
 
   it('creates a ReceiveFacts action when fetching cat facts has succeeded', () => {
-    nock('http://mapd-cats.azurewebsites.net/').get('/catfacts').reply(200, { body: { facts: ["Cats love us", "We love cats"] }});
+    nock('http://mapd-cats.azurewebsites.net/').get('/catfacts').reply(200, { body: { cats: ["Cats love us", "We love cats"] }});
     const expectedActions = [
-      { type: 'INITIALIZE_FACTS' },
-      { type: 'RECEIVE_FACTS', facts: ["Cats love us", "We love cats"] }
+      { type: 'RECEIVE_FACTS', cats: ["Cats love us", "We love cats"] }
     ]
     const store = mockStore({});
 
@@ -27,4 +26,29 @@ describe('async actions', () => {
       })
   });
 
+});
+
+describe('reducers', () => {
+  it('should return initial state when using unfamiliar action name', () => {
+    expect(
+      catsInfo(undefined, {})
+    ).toEqual(
+      {
+        catsInfo: []
+      }
+    );
+  });
+
+  it('should add facts when RECEIVE_FACTS fires', () => {
+    expect(
+      catsInfo({ cats: {} }, {
+        type: 'RECEIVE_FACTS',
+        cats: [ "I love cats", "You love cats" ]
+      })
+    ).toEqual(
+      {
+        cats: ["I love cats", "You love cats"]
+      }
+    );
+  });
 });

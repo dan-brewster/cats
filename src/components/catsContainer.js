@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 import CatGrid from './catGrid';
 
 let mapStateToProps = (state) => {
-  return state;
+  return {
+    cats: state.cats
+  }
 };
 
 var CatsContainer = connect(
