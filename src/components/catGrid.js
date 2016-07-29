@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { fetchFacts, fetchPics, receiveAllFacts, receiveAllPics } from '../catsStore';
 import SingleCat from './singleCat';
 import crypto from 'crypto';
-const hash = crypto.createHash('sha256');
+
 
 var CatGrid = React.createClass({
 
@@ -19,6 +19,7 @@ var CatGrid = React.createClass({
     return (
       <div className="catGrid">
         {this.props.cats.map(function(catInfo, i) {
+          const hash = crypto.createHash('sha256');
           hash.update(catInfo.pic + catInfo.fact);
           let hashDigest = hash.digest('hex');
           return(

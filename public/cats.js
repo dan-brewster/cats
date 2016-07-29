@@ -23328,8 +23328,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var hash = _crypto2.default.createHash('sha256');
-	
 	var CatGrid = _react2.default.createClass({
 	  displayName: 'CatGrid',
 	
@@ -23348,6 +23346,7 @@
 	      'div',
 	      { className: 'catGrid' },
 	      this.props.cats.map(function (catInfo, i) {
+	        var hash = _crypto2.default.createHash('sha256');
 	        hash.update(catInfo.pic + catInfo.fact);
 	        var hashDigest = hash.digest('hex');
 	        return _react2.default.createElement(_singleCat2.default, { key: hashDigest, catInfo: catInfo, catId: i });
