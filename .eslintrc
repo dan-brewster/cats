@@ -12,6 +12,10 @@
     "react"
   ],
 
+  "rules": {
+    "indent": ["error", 2]
+  },
+
   "extends": ["eslint:recommended", "react"]
 }
 

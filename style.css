@@ -26,3 +26,38 @@
 .catPic {
   max-height: 200px;
 }
+
+.catActions {
+  position: absolute;
+  top: 200px;
+}
+
+.singleCat:hover .catActions {
+  top: 0px;
+  background: rgba(0,0,0,0.75);
+  width: 200px;
+  height: 200px;
+  color: white;
+  animation: 0.5s 0s slideOver forwards;
+}
+
+.removeCat, .replaceCat {
+  font-size: 16px;
+  font-family: helvetica, arial, sans-serif;
+  font-weight: bold;
+  display: block;
+  padding: 8px;
+  background-color: navy;
+  border-radius: 10px;
+  margin: 10px;
+  margin-top: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.removeCat:hover, .replaceCat:hover {
+  transition: 0.5s;
+  background: blue;
+}
+
+@keyframes slideOver { from { top: 200px; } to { top: 0px; } }

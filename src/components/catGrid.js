@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { fetchFacts, fetchPics } from '../catsStore';
+import { fetchFacts, fetchPics, receiveAllFacts, receiveAllPics } from '../catsStore';
 import SingleCat from './singleCat';
+import crypto from 'crypto';
+const hash = crypto.createHash('sha256');
 
 var CatGrid = React.createClass({
 
@@ -10,21 +11,22 @@ var CatGrid = React.createClass({
   },
 
   componentDidMount: function() {
-    this.props.dispatch(fetchFacts());
-    this.props.dispatch(fetchPics());
+    this.props.dispatch(fetchFacts(receiveAllFacts));
+    this.props.dispatch(fetchPics(receiveAllPics));
   },
 
   render: function() {
-
     return (
       <div className="catGrid">
-        {this.props.cats.map(function(catInfo) {
+        {this.props.cats.map(function(catInfo, i) {
+          hash.update(catInfo.pic + catInfo.fact);
+          let hashDigest = hash.digest('hex');
           return(
-            <SingleCat catInfo={catInfo} />
+            <SingleCat key={hashDigest} catInfo={catInfo} catId={i} />
           );
         })}
       </div>
-    )
+    );
   }
 });
 
